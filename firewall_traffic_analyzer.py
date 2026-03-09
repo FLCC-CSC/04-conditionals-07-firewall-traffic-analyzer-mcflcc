@@ -1,8 +1,8 @@
 # FILE NAME - firewall_traffic_analyzer.py
 
-# NAME: 
-# DATE: 
-# BRIEF DESCRIPTION:  
+# NAME: Mike Cintron
+# DATE: 3.09.2026
+# BRIEF DESCRIPTION:  Code that screens port number and data size going through the port for anamolies.
 
 
 
@@ -15,9 +15,34 @@
 
 ########## ENTER YER CODE BELOW THIS LINE ##########
 
+print("=== Network Traffic Security Analyzer ===")
 
+port_number = int(input("Enter the port number (e.g., 80, 22, 443, 3389): "))
+data_transfer = int(input("Enter the data transfer size in megabytes (MB): "))
 
+if (port_number == 22 or port_number == 3389) and data_transfer >= 100:
+    print('''\n\nFIREWALL LOG:
+Port: 22, Transfer Size: 1200 MB
+Risk Assessment: HIGH RISK: Potential unauthorized remote access detected!
+------------------------''')
+ 
+elif port_number == 80 and data_transfer > 100:
+    print('''"\n\nFIREWALL LOG:
+Port: 80, Transfer Size: 120 MB
+Risk Assessment: MEDIUM RISK: Large unencrypted data transfer detected.
+------------------------''')
 
+elif port_number == 443:
+    print('''\n\nFIREWALL LOG:
+Port: 443, Transfer Size: 1024 MB
+Risk Assessment: LOW RISK: Secure encrypted transfer detected.
+------------------------''')
+          
+else:
+    print('''\n\nFIREWALL LOG:
+Port: 1725, Transfer Size: 234567 MB
+Risk Assessment: UNKNOWN: Unrecognized traffic pattern.
+------------------------''')
 
 
 
@@ -50,10 +75,10 @@ Risk Assessment: MEDIUM RISK: Large unencrypted data transfer detected.
 === Network Traffic Security Analyzer ===
 
 Enter the port number (e.g., 80, 22, 443, 3389): 22
-Enter the data transfer size in megabytes (MB): 12
+Enter the data transfer size in megabytes (MB): 1200
 
 FIREWALL LOG:
-Port: 22, Transfer Size: 12 MB
+Port: 22, Transfer Size: 1200 MB
 Risk Assessment: HIGH RISK: Potential unauthorized remote access detected!
 ------------------------
 '''
@@ -89,6 +114,7 @@ Risk Assessment: UNKNOWN: Unrecognized traffic pattern.
 '''
 
 1. Did you get tripped up using the `or` or `and` operators? If so, how?
+I went back to make sure I had the correct or in paranthesis and that the syntax was correct.
 
 
 
